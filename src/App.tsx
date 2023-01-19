@@ -9,7 +9,9 @@ export const App: React.FC = () => {
 
   useEffect(() => {
     document.addEventListener('keyup', keyEntered);
-  });
+
+    return () => document.removeEventListener('keyup', keyEntered);
+  }, [enteredKey]);
 
   return (
     <div className="App">
